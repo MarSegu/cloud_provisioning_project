@@ -1,0 +1,52 @@
+# .github/workflows/terraform.yml
+name: Terraform
+
+on:
+  push:
+    branches:
+      - main  # or the branch you want to trigger the pipeline
+  pull_request:
+    branches:
+      - main  # or the branch you want to trigger the pipeline
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.5.0  # Specify the Terraform version
+
+      - name: Terraform Validate
+        run: terraform validate
+
+      - name: Terraform Plan
+        id: plan
+        run: terraform plan -out=tfplan
+
+      - name: Upload Plan File
+        uses: actions/upload-artifact@v3
+        with:
+          name: terraform-plan
+          path: tfplan
+
+      - name: Manual Approval before Apply
+        if: github.event_name == 'workflow_dispatch'
+        run: echo "Manual approval is required before applying"
+
+      - name: Terraform Apply
+        if: github.event_name == 'workflow_dispatch'
+        run: terraform apply -auto-approve tfplan
+
+      - name: Manual Approval before Destroy
+        if: github.event_name == 'workflow_dispatch'
+        run: echo "Manual approval is required before destroying"
+
+      - name: Terraform Destroy
+        if: github.event_name == 'workflow_dispatch'
+        run: terraform destroy -auto-approve
