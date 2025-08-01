@@ -10,7 +10,7 @@
 
 ## ✨ Overview
 
-**cloud_provisioning_project** es un entorno de pruebas para despliegue de recursos cloud mediante infraestructura como código. Este repositorio permite crear y administrar diferentes recursos en la nube utilizando Terraform (HCL) y cuenta con integración automática vía GitHub Actions para CI/CD. Ideal para experimentar, aprender y validar configuraciones cloud en ambientes controlados.
+**cloud_provisioning_project** is a testing environment for cloud resource deployment using Infrastructure as Code. This repository allows you to create and manage various cloud resources with Terraform (HCL) and features automatic integration via GitHub Actions for CI/CD. It's ideal for experimenting, learning, and validating cloud configurations in controlled environments.
 
 ---
 
@@ -18,11 +18,11 @@
 
 <div align="center">
 
-| Lenguaje / Herramienta                                       | Uso                                         |
-|--------------------------------------------------------------|---------------------------------------------|
-| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" width="24"/> HCL (Terraform) | Infraestructura como código (IaC)           |
-| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="24"/> GitHub Actions        | Automatización CI/CD                        |
-| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aws/aws-original.svg" width="24"/> AWS / <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" width="24"/> GCP / <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" width="24"/> Azure | Proveedores de nube soportados              |
+| Language / Tool                                         | Usage                                     |
+|---------------------------------------------------------|-------------------------------------------|
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" width="24"/> HCL (Terraform) | Infrastructure as Code (IaC)              |
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="24"/> GitHub Actions        | CI/CD automation                          |
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aws/aws-original.svg" width="24"/> AWS / <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" width="24"/> GCP / <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" width="24"/> Azure | Supported cloud providers                 |
 
 </div>
 
@@ -32,60 +32,60 @@
 
 ```text
 .
-├── main.tf              # Definición principal de recursos cloud
-├── variables.tf         # Variables configurables del proyecto
-├── outputs.tf           # Outputs del despliegue
-├── examples/            # Ejemplos de uso y configuraciones
-├── .github/workflows/   # Pipelines CI/CD (GitHub Actions)
-└── README.md            # Documentación del proyecto
+├── main.tf              # Main cloud resource definition
+├── variables.tf         # Configurable project variables
+├── outputs.tf           # Deployment outputs
+├── examples/            # Usage examples and configurations
+├── .github/workflows/   # CI/CD pipelines (GitHub Actions)
+└── README.md            # Project documentation
 ```
 
 ---
 
 ## ⚡ Features
 
-- **Despliegue de múltiples recursos cloud** en ambientes de prueba
-- **Infraestructura como código**: parametrización y versionado con Terraform
-- **Automatización CI/CD** vía GitHub Actions
-- **Fácil extensión** y adaptación para distintos proveedores cloud
-- **Código limpio y documentado** para colaboración y aprendizaje
+- **Deploy multiple cloud resources** in testing environments
+- **Infrastructure as Code**: parameterization and versioning with Terraform
+- **CI/CD automation** via GitHub Actions
+- **Easy extension** and adaptation for different cloud providers
+- **Clean and documented code** for collaboration and learning
 
 ---
 
 ## 🛠️ Getting Started
 
-> **Despliega recursos en minutos.**
+> **Deploy resources in minutes.**
 
 ```bash
-# Clona el repositorio
+# Clone the repository
 git clone https://github.com/MarSegu/cloud_provisioning_project.git
 cd cloud_provisioning_project
 
-# Inicializa Terraform
+# Initialize Terraform
 terraform init
 
-# Aplica la infraestructura
+# Apply the infrastructure
 terraform apply
 ```
 
 ---
 
-## ⚙️ Variables Principales
+## ⚙️ Main Variables
 
-| Variable         | Descripción                            | Tipo   | Requerido | Ejemplo              |
-|------------------|----------------------------------------|--------|-----------|----------------------|
-| `project_name`   | Nombre del proyecto                    | string | Sí        | `"cloud-lab"`        |
-| `region`         | Región del despliegue                  | string | Sí        | `"us-east-1"`        |
-| `resource_type`  | Tipo de recurso a desplegar            | string | Sí        | `"ec2"`              |
-| `tags`           | Etiquetas para los recursos            | map    | No        | `{env = "test"}`     |
+| Variable         | Description                          | Type   | Required | Example              |
+|------------------|--------------------------------------|--------|----------|----------------------|
+| `project_name`   | Project name                         | string | Yes      | `"cloud-lab"`        |
+| `region`         | Deployment region                    | string | Yes      | `"us-east-1"`        |
+| `resource_type`  | Type of resource to deploy           | string | Yes      | `"ec2"`              |
+| `tags`           | Resource tags                        | map    | No       | `{env = "test"}`     |
 
-> Consulta [`variables.tf`](./variables.tf) para más opciones y detalles.
+> See [`variables.tf`](./variables.tf) for more options and details.
 
 ---
 
 ## 🧪 Testing
 
-> Planifica y prueba la infraestructura antes de aplicar cambios.
+> Plan and test the infrastructure before applying changes.
 
 ```bash
 terraform plan
@@ -96,30 +96,30 @@ terraform apply
 
 ## 🚀 Deployment
 
-- **CI/CD:** Automatizado vía workflows en `.github/workflows/`.
+- **CI/CD:** Automated via workflows in `.github/workflows/`.
 
 ---
 
 ## 📤 Outputs
 
-| Output      | Descripción                    |
-|-------------|-------------------------------|
-| `resource_id`  | ID del recurso desplegado        |
-| `endpoint`     | Endpoint de acceso (si aplica)   |
-| `status`       | Estado del despliegue            |
+| Output         | Description                        |
+|----------------|------------------------------------|
+| `resource_id`  | ID of the deployed resource        |
+| `endpoint`     | Access endpoint (if applicable)    |
+| `status`       | Deployment status                  |
 
 ---
 
 ## 🤝 Contributing
 
-¡Las contribuciones son bienvenidas!  
-Abre un issue o pull request para sugerencias y mejoras.
+Contributions are welcome!  
+Open an issue or pull request for suggestions and improvements.
 
 ---
 
 ## 📃 License
 
-Distribuido bajo la licencia MIT. Consulta [LICENSE](LICENSE) para más detalles.
+Distributed under the MIT License. See [LICENSE](LICENSE) for more details.
 
 ---
 
